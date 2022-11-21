@@ -9,3 +9,6 @@ def main(request):
 def about(request):
     return render(request, 'mainapp/about_us.html')
 
+
+def support(request):
+    return render(request, 'mainapp/Support.html')
