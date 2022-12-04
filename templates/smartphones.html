@@ -1,0 +1,18 @@
+{% extends 'base_main.html' %}
+
+{% block title %}
+Смартфоны
+{% endblock %}
+
+{% block content %}
+    {% for el in models %}
+
+    <div class="alert alert-light" role="alert">
+        <h3>{{ el.model }}</h3>
+        <p> <img src="{{ el.img.url }}"
+        height="350" width="250"></p>
+        <p>Цена {{ el.price }}</p>
+    </div>
+
+    {% endfor %}
+{% endblock %}
