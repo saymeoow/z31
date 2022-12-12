@@ -1,0 +1,22 @@
+{% extends 'base_main.html' %}
+{% block title %}
+{{ model }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+            <div class="col-md-auto">
+                <div class="alert alert-light" role="alert">
+                    <h3>{{ model.model }}</h3>
+                    <p> <img src="{{ model.img.url }}"
+                             height="350" width="250"></p>
+                    <p> Цена {{ model.price }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-auto">
+        <div class="alert alert-light" role="alert">
+            {{ model.description }}
+        </div>
+    </div>
+{% endblock %}

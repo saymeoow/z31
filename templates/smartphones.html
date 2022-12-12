@@ -1,18 +1,18 @@
 {% extends 'base_main.html' %}
 
 {% block title %}
-Смартфоны
+Сматрфоны
 {% endblock %}
 
 {% block content %}
-    {% for el in models %}
-
-    <div class="alert alert-light" role="alert">
-        <h3>{{ el.model }}</h3>
-        <p> <img src="{{ el.img.url }}"
+    {% for el in model %}
+        <h3 align="center">{{ el.model }}</h3>
+        <p align="center"> <img src="{{ el.img.url }}"
         height="350" width="250"></p>
-        <p>Цена {{ el.price }}</p>
-    </div>
+        <p align="center"> Цена {{ el.price }} </p>
+        <p align="center"><a href="{{ el.get_absolute_url }}">Узннать больше</a></p>
+
 
     {% endfor %}
+
 {% endblock %}

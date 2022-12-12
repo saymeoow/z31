@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 from .mixins import CreateUpdateDeletedMixin
 
 
@@ -38,9 +40,17 @@ class Phones(models.Model, CreateUpdateDeletedMixin):
         null=True,
         verbose_name='Изображение'
     )
-
+    slug = models.SlugField(
+        max_length=255,
+        unique=True,
+        db_index=True,
+        verbose_name='URL',
+        null=True
+    )
     def __str__(self):
         return self.model
+    def get_absolute_url(self):
+        return reverse('current_phone', kwargs={'current_slug': self.slug})
 
 
 class Company(models.Model, CreateUpdateDeletedMixin):
