@@ -11,4 +11,5 @@ urlpatterns = [
          name='smartphones'),
     path('smartphones/<slug:current_slug>/', views.current_phones,
          name='current_phone'),
+    path('login/', views.LoginUser, name='login')
 ]

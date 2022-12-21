@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
+
     {% for el in model %}
         <h3 align="center">{{ el.model }}</h3>
         <p align="center"> <img src="{{ el.img.url }}"
         height="350" width="250"></p>
         <p align="center"> Цена {{ el.price }} </p>
-        <p align="center"><a href="{{ el.get_absolute_url }}">Узннать больше</a></p>
-
+        <p align="center"><a href="{{ el.get_absolute_url }}">Узнать больше</a></p>
+        <hr>
 
     {% endfor %}
-
 {% endblock %}

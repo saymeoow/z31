@@ -1,0 +1,25 @@
+{% if is_paginated %}
+
+    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+
+        <nav>
+        <ul>
+            <li>
+                <a href="?page=1{% if order_by %}&amp;order_by={{ order_by }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}">&laquo;</a>
+            </li>
+            {% for page in pagination.page_range %}
+                <li {% if object_list.number == page %}class="active"{% endif %}>
+                    <a href="?page={{ page }}{% if order_by %}&amp;order_by={{ order_by }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}">
+                        {{ page }}
+                    </a>
+                </li>
+                {% endfor %}
+            <li>
+                <a href="?page={{ pagination.num_pages }}{% if order_by %}&amp;order_by={{ order_by }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}{% if reverse %}&amp;reverse={{ reverse }}{% endif %}">&raquo;</a>
+            </li>
+        </ul>
+        </nav>
+
+    {% endwith %}
+
+{% endif %}
