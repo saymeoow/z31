@@ -1,8 +1,5 @@
-from django.contrib import auth
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
-from django.template.context_processors import csrf
 from .models import Phones
 
 
@@ -42,6 +39,43 @@ def current_phones(request, current_slug):
         'id': phone_model,
     }
     return render(request, 'current_phones.html', context=context)
+
+def apple(request):
+    apple = Phones.objects.filter(company_name=5)
+    context = {
+        'model': apple,
+        'price': apple,
+        'img': apple,
+        'descriptoin': apple,
+        'company': apple,
+        'id': apple,
+    }
+    return render(request, 'apple.html', context=context)
+
+def mi(request):
+    mi = Phones.objects.filter(company_name=3)
+    context = {
+        'model': mi,
+        'price': mi,
+        'img': mi,
+        'descriptoin': mi,
+        'company': mi,
+        'id': mi,
+    }
+    return render(request, 'mi.html', context=context)
+
+
+def samsung(request):
+    samsung = Phones.objects.filter(company_name=4)
+    context = {
+        'model': samsung,
+        'price': samsung,
+        'img': samsung,
+        'descriptoin': samsung,
+        'company': samsung,
+        'id': samsung,
+    }
+    return render(request, 'samsung.html', context=context)
 
 
 class LoginUser(LoginView):

@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.template.context_processors import csrf
 
+from login.forms import RegisterForm
+
 
 def logins(request):
     args = {}
@@ -26,13 +28,12 @@ def logouts(request):
     auth.logout(request)
     return redirect('/')
 
-
 def registers(request):
     args = {}
     args.update(csrf(request))
-    args['form'] = UserCreationForm()
+    args['form'] = RegisterForm()
     if request.POST:
-        newuser_form = UserCreationForm(request.POST)
+        newuser_form = RegisterForm(request.POST)
         if newuser_form.is_valid():
             newuser_form.save()
             newuser = auth.authenticate(
