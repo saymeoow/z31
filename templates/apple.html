@@ -1,0 +1,32 @@
+{% extends 'base_main.html' %}
+
+{% block title %}
+Сматрфоны Apple
+{% endblock %}
+
+{% block content %}
+    <input type="checkbox" id="nav-toggle" hidden="">
+    <nav class="nav">
+        <label for="nav-toggle" class="nav-toggle" onclick=""></label>
+        <h2 class="logo">
+            <a>Производители</a>
+        </h2>
+        <ul>
+            <li><a href="{% url 'smartphones' %}">Все производители</a></li>
+            <li><a href="{% url 'apple' %}">Apple</a></li>
+            <li><a href="{% url 'mi' %}">MI</a></li>
+            <li><a href="{% url 'samsung' %}">Samsung</a></li>
+        </ul>
+    </nav>
+    {% for el in model %}
+        <nav class="container">
+        <h3 align="center">{{ el.model }}</h3>
+        <p align="center"> <img src="{{ el.img.url }}"
+        height="350" width="250"></p>
+        <p align="center"> Цена {{ el.price }} </p>
+        <p align="center"><a href="{{ el.get_absolute_url }}">Узнать больше</a></p>
+        <hr>
+        </nav>
+
+    {% endfor %}
+{% endblock %}
